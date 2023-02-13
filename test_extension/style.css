@@ -1,12 +1,18 @@
 *{
     padding: 0;
     margin: 0;
+    font-size: 15px;
 }
 
 body {
     min-width: 200px;
     min-height: 250px;
 }
+
+#content {
+    margin: 10px;
+}
+
 
 /* Add a black background color to the top navigation */
 .topnav {
@@ -37,4 +43,22 @@ body {
 .topnav span.active {
     background-color: #04AA6D;
     color: white;
+}
+
+/* ------------------------------- */
+#schooler-ui {
+    display: grid;
+    justify-content: left;
+}
+img#schooler-teacher-image {
+    width: 20%;
+}
+#schooler-teacher {
+    display: flex;
+    align-items: center;
+    gap: 10%;
+}
+#schooler-teacher-info {
+    display: grid;
+    justify-content: left;
 }
