@@ -74,7 +74,7 @@ function handleSkipper() {
             clearInterval(adsSkipper)
             console.error("AdsSkipper Error", error)
         }
-    }, 500)
+    }, 100)
 }
 
 initialSkipper()
