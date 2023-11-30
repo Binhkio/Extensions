@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --header-color: #ffffff;
+    --header-bg-color: #933EC5;
+    --row-bg-color: #3a3abe55;
+
+    /* Switch */
+    --switch-bg-color-on: #933EC5;
+    --switch-bg-color-off: #CCCCCC;
+    --switch-color-on: #ffffff;
+    --switch-color-off: #292929;
+}
+
+body {
+    z-index: 10;
+    width: 250px;
+    max-height: 350px;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+header {
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--header-color);
+    background-color: var(--header-bg-color);
+}
+
+main {
+    padding: 0 8px;
+}
+
+footer {
+    padding: 4px 4px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input[type="checkbox"] {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-bg-color-off);
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input[type="checkbox"]:checked + .slider {
+    background-color: var(--switch-bg-color-on);
+}
+
+input[type="checkbox"]:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Optional: Add some styles to indicate the switch state visually */
+.slider:after {
+    position: absolute;
+    content: "";
+    color: var(--switch-color-off);
+    display: block;
+    padding: 6px;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+}
+
+input[type="checkbox"]:checked + .slider:after {
+    content: "ON";
+    color: var(--switch-color-on);
+}
+
+.disable-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.row:hover {
+    background-color: var(--row-bg-color);
+}
+
+.row-title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 6px;
+}

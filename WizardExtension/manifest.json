@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "Wizard",
+    "version": "1.0",
+    "description": "Wizard extension for anyone who like it !!!",
+    "icons": {
+        "16": "images/sorcerer-16.png",
+        "32": "images/sorcerer-32.png",
+        "48": "images/sorcerer-32.png",
+        "128": "images/sorcerer-128.png"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage",
+        "scripting",
+        "nativeMessaging"
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "scripts/content.js",
+                "scripts/reading-time/content.js"
+            ],
+            "matches": ["<all_urls>"]
+        },
+        {
+            "js": ["scripts/ads-block/content.js"],
+            "matches": ["https://www.youtube.com/*"],
+            "run_at": "document_end",
+            "all_frames": true
+        }
+    ],
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+}
