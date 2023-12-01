@@ -59,16 +59,17 @@ function handleSkipper() {
                 // Skip ads
                 const duration = video.duration
                 if (duration) {
-                    video.currentTime = duration - 1
+                    video.currentTime = duration - 0.001
                 }
                 
-                video.addEventListener('ended', () => {
+                const skipBtnInterval = setInterval(() => {
                     // Check if the button SkipAds exist
                     const skipBtns = document.querySelectorAll('div[class*="skip"][id*="ad-text"]')
                     if (skipBtns.length > 0) {
                         skipBtns.forEach(btn => btn.click())
+                        clearInterval(skipBtnInterval)
                     }
-                })
+                }, 100)
             }
         } catch (error) {
             clearInterval(adsSkipper)

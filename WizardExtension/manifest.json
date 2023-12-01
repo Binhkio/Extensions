@@ -19,7 +19,6 @@
     "content_scripts": [
         {
             "js": [
-                "scripts/content.js",
                 "scripts/reading-time/content.js"
             ],
             "matches": ["<all_urls>"]

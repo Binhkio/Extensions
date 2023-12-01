@@ -1,4 +1,5 @@
 const timeCountKey = "time-counter-allowed"
+const urlKey = window.location.origin
 
 let timeReading = 0;
 
@@ -28,7 +29,17 @@ function formatTime(seconds) {
     return timeString;
 }
 
-function initTimeCounter() {
+function getTimeDifference(start) {
+    const startTime = new Date(start);
+    const endTime = new Date();
+  
+    return Math.floor((endTime.getTime() - startTime.getTime()) / 1000);
+}
+
+async function initTimeCounter() {
+    const res = await chrome.runtime.sendMessage({ option: "reading-time", key: urlKey })
+    timeReading = getTimeDifference(res)
+
     const body = document.querySelector("body");
     if (body) {
         setInterval(() => {
