@@ -1,4 +1,25 @@
 /**
+ * Navbar controller
+ */
+let chosenNavbar = document.querySelector("nav ul li.chosen")
+document.querySelectorAll("nav ul li").forEach((e, k, p) => {
+  e.addEventListener('click', () => {
+    if (e.classList.contains("chosen")) return;
+
+    // Remove old attr
+    chosenNavbar.classList.remove("chosen")
+    const currContentId = chosenNavbar.getAttribute("data-nav")
+    document.getElementById(currContentId).style.display = "none"
+    // Add new attr
+    chosenNavbar = e
+    chosenNavbar.classList.add("chosen")
+    const newContentId = chosenNavbar.getAttribute("data-nav")
+    document.getElementById(newContentId).style.display = "block"
+  })
+})
+
+
+/**
  * Ads Skipper Switch Controll
  */
 const adsSkipKey = "ads-skipper-allowed"

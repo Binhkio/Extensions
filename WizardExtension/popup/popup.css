@@ -25,7 +25,6 @@ body {
 
 header {
     padding: 8px 12px;
-    margin-bottom: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,6 +38,34 @@ main {
 
 footer {
     padding: 4px 4px;
+}
+
+nav {
+    margin-bottom: 8px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li {
+    cursor: pointer;
+    padding: 6px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+}
+
+nav ul li:hover {
+    color: var(--header-bg-color);
+}
+
+nav ul li.chosen {
+    color: var(--header-color);
+    background-color: var(--header-bg-color);
 }
 
 .switch {
