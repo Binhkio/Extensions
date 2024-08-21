@@ -28,6 +28,12 @@
             "matches": ["https://www.youtube.com/*"],
             "run_at": "document_end",
             "all_frames": true
+        },
+        {
+            "js": ["scripts/facebook-video-downloader/content.js"],
+            "matches": ["https://*.facebook.com/*"],
+            "run_at": "document_start",
+            "all_frames": true
         }
     ],
     "action": {

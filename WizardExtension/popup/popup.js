@@ -4,7 +4,7 @@
 let chosenNavbar = document.querySelector("nav ul li.chosen")
 document.querySelectorAll("nav ul li").forEach((e, k, p) => {
   e.addEventListener('click', () => {
-    if (e.classList.contains("chosen")) return;
+    if (e.classList.contains("chosen")) return
 
     // Remove old attr
     chosenNavbar.classList.remove("chosen")
@@ -18,30 +18,31 @@ document.querySelectorAll("nav ul li").forEach((e, k, p) => {
   })
 })
 
+/**
+ * Switch
+ */
+document.querySelectorAll('.switch input').forEach((element, k, p) => {
+  const key = element.getAttribute('data-allowed')
+
+  chrome.storage.local.get([key]).then((result) => {
+    element.checked = result[key]
+  })
+
+  element.addEventListener('change', async (event) => {
+    await chrome.storage.local.set({ [key]: event.target.checked })
+  })
+})
 
 /**
- * Ads Skipper Switch Controll
+ * Open-Close Background Setup
  */
-const adsSkipKey = "ads-skipper-allowed"
-const adsSkipSwitch = document.getElementById('ads-skip');
-
-chrome.storage.local.get([adsSkipKey]).then((result) => {
-  adsSkipSwitch.checked = result[adsSkipKey]
+const bgSetup = document.getElementById('background-setup')
+const overScreen = document.getElementById('over-screen')
+document.getElementById('custom-background').addEventListener('click', function() {
+  bgSetup.classList.remove('hidden')
+  overScreen.classList.remove('hidden')
 })
-adsSkipSwitch.addEventListener('change', async function() {
-  await chrome.storage.local.set({ [adsSkipKey]: adsSkipSwitch.checked })
-});
-
-
-/**
- * Time counter Switch Controll
- */
-const timeCountKey = "time-counter-allowed"
-const timeCountSwitch = document.getElementById('time-count');
-
-chrome.storage.local.get([timeCountKey]).then((result) => {
-  timeCountSwitch.checked = result[timeCountKey]
+document.getElementById('background-back').addEventListener('click', function() {
+  bgSetup.classList.add('hidden')
+  overScreen.classList.add('hidden')
 })
-timeCountSwitch.addEventListener('change', async function() {
-  await chrome.storage.local.set({ [timeCountKey]: timeCountSwitch.checked })
-});

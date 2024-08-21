@@ -1,18 +1,25 @@
 * {
     margin: 0;
     padding: 0;
+    font-size: 16px;
 }
 
 :root {
     --header-color: #ffffff;
     --header-bg-color: #933EC5;
     --row-bg-color: #3a3abe55;
+    --bg-color: #ffffff;
 
     /* Switch */
     --switch-bg-color-on: #933EC5;
     --switch-bg-color-off: #CCCCCC;
     --switch-color-on: #ffffff;
     --switch-color-off: #292929;
+
+    --error-color: #f54a45;
+    --warning-color: #ff8800;
+    --success-color: #34c724;
+    --info-color: #3370ff;
 }
 
 body {
@@ -32,7 +39,7 @@ header {
     background-color: var(--header-bg-color);
 }
 
-main {
+main #default {
     padding: 0 8px;
 }
 
@@ -153,4 +160,74 @@ input[type="checkbox"]:checked + .slider:after {
     justify-content: left;
     align-items: center;
     gap: 6px;
+}
+
+.pointer:hover {
+    cursor: pointer;
+}
+
+.overall {
+    background: var(--bg-color);
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.image-button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+}
+
+.image-button input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.image-button .button-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    color: var(--header-bg-color);
+    margin: 4px 8px;
+    padding: 0;
+    font-size: 24px;
+    font-weight: bold;
+    border: 1px dotted var(--header-bg-color);
+    transition: background-color 0.3s ease;
+}
+
+.image-button:hover .button-content {
+    background-color: var(--row-bg-color);
+}
+
+.error {
+    color: var(--error-color);
+    font-style: italic;
+    font-size: 14px;
+    text-align: center;
+}
+
+#list-backgrounds {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

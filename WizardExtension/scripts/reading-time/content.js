@@ -15,6 +15,7 @@ const badge = document.createElement("div");
     badge.style.fontSize = '16px'
     badge.style.padding = '4px 16px'
     badge.style.pointerEvents = 'none'
+    badge.style.zIndex = '1000'
     badge.textContent = formatTime(0)
 
 function formatTime(seconds) {
